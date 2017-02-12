@@ -5,7 +5,7 @@
   "main": "main-asi.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devserver": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --wath --color --inline --content-base public --port 8090 --host localhost"
+    "devserver": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --watch --color --inline --content-base public --port 8090 --host localhost"
   },
   "author": "RomanSoroka",
   "license": "ISC",
@@ -14,16 +14,20 @@
     "d3": "^3.5.17",
     "jquery": "*",
     "kendo-ui-react": "^0.14.2",
+    "lodash.groupby": "^4.6.0",
     "material-ui": "^0.16.7",
     "rc-tree": "^1.4.2",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
     "react-svg-file-zoom-pan": "0.0.6",
     "react-svg-loader": "^1.1.1",
-    "react-svg-pan-zoom": "^2.4.1",
+    "react-svg-pan-zoom": "^2.4.5",
     "react-tap-event-plugin": "^2.0.1",
     "react-tree-menu": "^1.5.0",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.8.1",
     "svg-loader": "0.0.2",
     "svg-react-loader": "^0.3.7"
   },
@@ -36,6 +40,7 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.28.0",
     "json-loader": "^0.5.4",
+    "redux-devtools": "^3.3.2",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.14.0",
