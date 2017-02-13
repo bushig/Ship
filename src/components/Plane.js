@@ -9,12 +9,26 @@ class Plane extends React.Component {
         this.Viewer = null;
     }
 
-    componentDidMount() {
+    // componentDidMount() {
+    //     console.log('Did mount');
+    //     this.Viewer.fitToViewer();
+    //     this.Viewer.reset();
+    // }
+
+    componentWillUpdate() {
+        this.Viewer.reset();
+        // this.Viewer.setPointOnViewerCenter(-8, -4, 3.4);
+        // console.log('Did update: ', this.Viewer.getValue());
         this.Viewer.fitToViewer();
+        // this.Viewer.zoom(0, 0, 1);
+        // this.Viewer.zoomOnViewerCenter(3.4);
+        // this.Viewer.zoom(0, 0, 3.4)
+
     }
 
     render() {
         console.log('SVG:', this.props.src);
+        console.log('RECTS:', this.props.rects);
         return (
             <div>
                 {/*<button onClick={event => this.Viewer.zoomOnViewerCenter(1.1)}>Zoom in</button>*/}
@@ -24,20 +38,27 @@ class Plane extends React.Component {
                 {/*<hr/>*/}
 
                 <ReactSVGPanZoom
-                    SVGBackground = {'grey'}
-                    background = {'grey'}
+                    SVGBackground={'grey'}
+                    background={'grey'}
                     width={850} height={800} ref={Viewer => this.Viewer = Viewer}
+                    tool={'pan'}
                 >
 
-                    <svg width={725} height={825}>
+                    <svg width={200} height={200}>
                         <image href={this.props.src}/>
-                        <Rect x="50" y="50"/>
+                        {this.props.rects.map((rect) => {
+                            return <Rect x={rect.position[0]} y={rect.position[1]}/>
+                        })}
                     </svg>
                 </ReactSVGPanZoom>
             </div>
         );
     }
 }
+
+Plane.defaultProps = {
+    rects: []
+};
 
 // style={{outline: "1px solid black"}}
 // onClick={event => console.log('click', event.x, event.y, event.originalEvent)}

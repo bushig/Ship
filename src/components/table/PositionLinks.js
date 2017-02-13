@@ -31,12 +31,13 @@ class Link extends React.Component {
     handleClick(e){
         e.preventDefault();
         this.props.setActiveDeck(this.props.deck);
+        this.props.setPlaneRects(this.props.data);
     }
     render(){
         const deckName = deckNames[this.props.deck-1].title;
         //TODO: REFACTOR
         return (
-            <li key={this.props.deck}><a href="#" data-toggle="modal" data-target="#MapModal" onClick={this.handleClick}>{deckName}<span className="label badge">{this.props.data.length} шт.</span></a></li>
+            <li key={this.props.deck}><a data-toggle="modal" data-target="#MapModal" onClick={this.handleClick}>{deckName}<span className="label badge">{this.props.data.length} шт.</span></a></li>
         )
     }
 }
