@@ -12,8 +12,8 @@ function TableRow({data, setActiveDeck, setPlaneRects}) {
             <td scope="row">{data.index}</td>
             <td>{data.title}</td>
             <td>{itemsCount}</td>
-            <td>{unitMass}</td>
-            <td>{unitMass * itemsCount}</td>
+            <td className="col-md-1">{unitMass}</td>
+            <td className="col-md-1">{unitMass * itemsCount}</td>
             <td className="col-md-2">
                 <PositionLinks setActiveDeck={setActiveDeck} setPlaneRects={setPlaneRects} items={data.items}/>
             </td>
