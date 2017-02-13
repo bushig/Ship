@@ -9,7 +9,7 @@ function PositionLinks({items, setActiveDeck, setPlaneRects}) {
     const itemsByDeck = groupBy(items, 'deck');
     // console.log(itemsByDeck);
     return(
-        <ul>
+        <div>
             {Object.keys(itemsByDeck).map((deck, index)=>{
                 console.log('Группа:', itemsByDeck[deck]);
                 const data = itemsByDeck[deck];
@@ -17,7 +17,7 @@ function PositionLinks({items, setActiveDeck, setPlaneRects}) {
                     <Link key={deck} deck = {deck} data = {data} setActiveDeck={setActiveDeck} setPlaneRects={setPlaneRects} />
                 )
             })}
-        </ul>
+        </div>
     )
 }
 
@@ -37,7 +37,7 @@ class Link extends React.Component {
         const deckName = deckNames[this.props.deck-1].title;
         //TODO: REFACTOR
         return (
-            <li key={this.props.deck}><a data-toggle="modal" data-target="#MapModal" onClick={this.handleClick}>{deckName}<span className="label badge">{this.props.data.length} шт.</span></a></li>
+            <button key={this.props.deck} type="button" className="btn btn-default btn-block btn-sm" data-toggle="modal" data-target="#MapModal" onClick={this.handleClick}>{deckName} <span className="label badge">{this.props.data.length} шт.</span></button>
         )
     }
 }

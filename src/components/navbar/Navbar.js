@@ -38,7 +38,7 @@ class Navbar extends React.Component {
                     <div className="navbar-header">
                         <a className="navbar-brand" href="#">АВАРИЙНО СПАСАТЕЛЬНОЕ ИМУЩЕСТВО</a>
                     </div>
-
+                    <div className="navbar-collapse collapse">
                     <ul className="nav navbar-nav">
                         <li><a href="#" data-border="1-700"  >Полный список</a></li>
                         <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" href="#">Выбор
@@ -81,8 +81,12 @@ class Navbar extends React.Component {
                         </li>
                         <li><input style={{marginTop: "7px"}} type="text" className="form-control" onChange={this.handleChange} placeholder="фильтр"/>
                         </li>
+
+                    </ul>
+                    <ul className="nav navbar-nav navbar-left">
                         <li><a id="status">ПОЛНЫЙ СПИСОК</a></li>
                     </ul>
+                </div>
                 </div>
             </nav>)
 
