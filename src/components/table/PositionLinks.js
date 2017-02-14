@@ -37,7 +37,7 @@ class Link extends React.Component {
         const deckName = deckNames[this.props.deck-1].title;
         //TODO: REFACTOR
         return (
-            <button key={this.props.deck} type="button" className="btn btn-default btn-block btn-sm" data-toggle="modal" data-target="#MapModal" onClick={this.handleClick}>{deckName} <span className="label badge">{this.props.data.length} шт.</span></button>
+            <button key={this.props.deck} type="button" className="btn btn-default btn-block btn-sm pull-left" data-toggle="modal" data-target="#MapModal" onClick={this.handleClick}>{deckName} <span className="label badge">{this.props.data.length} шт.</span></button>
         )
     }
 }

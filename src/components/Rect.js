@@ -5,8 +5,8 @@ function Rect(props) {
     const height = 5;
     const x = props.x;
     const y = props.y;
-    return (<rect x={x} y={y} width={width} height={height} style={{"fill": "none",
-        "stroke-width": 1, "stroke": "#ff0000"}}>
+    return (<rect onClick={()=>console.log("Clicked!")} x={x} y={y} width={width} height={height} style={{"fill": "none",
+        "strokeWidth": 1, "stroke": "#ff0000"}}>
         <animate attributeName="x" from={x} to={x-0.25*width} dur="0.5s" begin="0s" repeatCount="indefinite" />
         <animate attributeName="y" from={y} to={y-0.25*height} dur="0.5s" begin="0s" repeatCount="indefinite" />
         <animate attributeName="width" from={width} to={2*width} dur="0.5s" begin="0s" repeatCount="indefinite" />

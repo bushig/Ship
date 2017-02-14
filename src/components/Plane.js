@@ -1,5 +1,6 @@
 import React from 'react';
 import {ReactSVGPanZoom} from 'react-svg-pan-zoom';
+import Dimensions from 'react-dimensions'
 
 import Rect from './Rect'
 
@@ -9,14 +10,16 @@ class Plane extends React.Component {
         this.Viewer = null;
     }
 
-    // componentDidMount() {
-    //     console.log('Did mount');
-    //     this.Viewer.fitToViewer();
-    //     this.Viewer.reset();
-    // }
+    componentDidMount() {
+        console.log('Did mount');
+        this.Viewer.fitToViewer();
+        this.Viewer.reset();
+    }
 
     componentWillUpdate() {
         this.Viewer.reset();
+        console.log(this.Viewer);
+        this.Viewer.state.tool = 'pan';
         // this.Viewer.setPointOnViewerCenter(-8, -4, 3.4);
         // console.log('Did update: ', this.Viewer.getValue());
         this.Viewer.fitToViewer();
@@ -27,31 +30,22 @@ class Plane extends React.Component {
     }
 
     render() {
-        console.log('SVG:', this.props.src);
-        console.log('RECTS:', this.props.rects);
         return (
-            <div>
-                {/*<button onClick={event => this.Viewer.zoomOnViewerCenter(1.1)}>Zoom in</button>*/}
-                {/*<button onClick={event => this.Viewer.fitSelection(40, 40, 200, 200)}>Zoom area</button>*/}
-                {/*<button onClick={event => this.Viewer.fitToViewer()}>Fit</button>*/}
-
-                {/*<hr/>*/}
-
                 <ReactSVGPanZoom
-                    SVGBackground={'grey'}
-                    background={'grey'}
-                    width={850} height={800} ref={Viewer => this.Viewer = Viewer}
-                    tool={'pan'}
+                    SVGBackground={"#212830"}
+                    background={'#212830'}
+                    width={window.innerWidth} height={window.innerHeight-54} ref={Viewer => this.Viewer = Viewer}
+                    toolbarPosition={"top"}
                 >
 
                     <svg width={200} height={200}>
                         <image href={this.props.src}/>
                         {this.props.rects.map((rect) => {
-                            return <Rect x={rect.position[0]} y={rect.position[1]}/>
+                            return <Rect key={rect.position} x={rect.position[0]} y={rect.position[1]}/>
                         })}
                     </svg>
                 </ReactSVGPanZoom>
-            </div>
+
         );
     }
 }
@@ -64,4 +58,4 @@ Plane.defaultProps = {
 // onClick={event => console.log('click', event.x, event.y, event.originalEvent)}
 // onMouseMove={event => console.log('move', event.x, event.y)}
 
-export default Plane
+export default Plane;
