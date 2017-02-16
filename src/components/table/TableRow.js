@@ -9,9 +9,9 @@ function TableRow({data, setActiveDeck, setPlaneRects}) {
     const unitMass = data.mass;
     return(
         <tr>
-            <td scope="row">{data.index}</td>
-            <td>{data.title}</td>
-            <td>{itemsCount}</td>
+            <td scope="row" className="col-md-1">{data.index}</td>
+            <td className="col-md-6">{data.title}</td>
+            <td className="col-md-1">{itemsCount}</td>
             <td className="col-md-1">{unitMass}</td>
             <td className="col-md-1">{unitMass * itemsCount}</td>
             <td className="col-md-2">
