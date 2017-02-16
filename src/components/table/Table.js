@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import TableRow from './TableRow'
 
 function Table({visibleTableList, setActiveDeck, setPlaneRects}) {
-    console.log('visible:', visibleTableList);
+    // console.log('visible:', visibleTableList);
     return (
         visibleTableList.length != 0 ? (
                 <table className="table table-bordered table-striped table-fixed-header">

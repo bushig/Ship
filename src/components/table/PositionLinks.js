@@ -11,7 +11,7 @@ function PositionLinks({items, setActiveDeck, setPlaneRects}) {
     return(
         <div>
             {Object.keys(itemsByDeck).map((deck, index)=>{
-                console.log('Группа:', itemsByDeck[deck]);
+                {/*console.log('Группа:', itemsByDeck[deck]);*/}
                 const data = itemsByDeck[deck];
                 return(
                     <Link key={deck} deck = {deck} data = {data} setActiveDeck={setActiveDeck} setPlaneRects={setPlaneRects} />

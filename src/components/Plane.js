@@ -18,7 +18,7 @@ class Plane extends React.Component {
 
     componentWillUpdate() {
         this.Viewer.reset();
-        console.log(this.Viewer);
+        // console.log(this.Viewer);
         this.Viewer.state.tool = 'pan';
         // this.Viewer.setPointOnViewerCenter(-8, -4, 3.4);
         // console.log('Did update: ', this.Viewer.getValue());

@@ -19,8 +19,8 @@ class Navbar extends React.Component {
     handleClick(e) {
         e.preventDefault();
         const aHref = e.target;
-        const min = aHref.dataset.border.split("-")[0];
-        const max = aHref.dataset.border.split("-")[aHref.dataset.border.split("-").length - 1];
+        const min = parseInt(aHref.dataset.border.split("-")[0]);
+        const max = parseInt(aHref.dataset.border.split("-")[aHref.dataset.border.split("-").length - 1]);
         this.props.setFilterRange(min, max);
         document.getElementById('status').innerHTML = aHref.innerHTML.toUpperCase();
     }
