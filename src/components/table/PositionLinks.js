@@ -59,7 +59,7 @@ class PositionList extends React.Component {
             <ul className="list-group">
                 {this.props.data.map((item, index) => {
                     return (<a href="#" className="list-group-item" data-toggle="modal"
-                               data-target="#MapModal" onClick={()=> this.handleClick(item)}>{index+1+") Координаты:"+ item.position[0]+", "+item.position[1]}</a>)
+                               data-target="#MapModal" onClick={()=> this.handleClick(item)}><span className="glyphicon glyphicon-map-marker"/>{"Координаты:"+ item.position[0]+", "+item.position[1]}</a>)
                 })}
             </ul>
         </div>
@@ -84,10 +84,10 @@ class LinkToAll extends React.Component {
         const deckName = deckNames[this.props.deck - 1].title;
         //TODO: REFACTOR
         return (
-            <div className="pull-right">
+            <div className="btn-group pull-right">
             <button type="button" className="btn btn-default btn-xs" data-toggle="modal"
                     data-target="#MapModal" onClick={this.handleClick}><span className="glyphicon glyphicon-eye-open"></span></button>
-                <span className="badge">{this.props.data.length}</span>
+                <button className="btn btn-default btn-xs disabled">{this.props.data.length} шт.</button>
             </div>
         )
     }
