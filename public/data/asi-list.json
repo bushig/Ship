@@ -7,22 +7,22 @@
       {
         "deck": 1,
         "position": [
-          100,
-          69
+          0,
+          0
         ]
       },
       {
         "deck": 1,
         "position": [
-          60,
-          60
+          1024,
+          768
         ]
       },
       {
         "deck": 1,
         "position": [
-          80,
-          60
+          600,
+          300
         ]
       },
       {
@@ -69,6 +69,97 @@
     "items": [
       {
         "deck": 1,
+        "position": [
+          30,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "title": "Огнетушители",
+    "mass": 300.0,
+    "items": [
+      {
+        "deck": 3,
+        "position": [
+          30,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "title": "Огнетушители",
+    "mass": 300.0,
+    "items": [
+      {
+        "deck": 4,
+        "position": [
+          30,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "index": 160,
+    "title": "Огнетушители",
+    "mass": 300.0,
+    "items": [
+      {
+        "deck": 5,
+        "position": [
+          30,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "index": 290,
+    "title": "Огнетушители",
+    "mass": 300.0,
+    "items": [
+      {
+        "deck": 6,
+        "position": [
+          30,
+          40
+        ]
+      },
+      {
+        "deck": 7,
+        "position": [
+          30,
+          40
+        ]
+      },
+      {
+        "deck": 8,
+        "position": [
+          30,
+          40
+        ]
+      },
+      {
+        "deck": 8,
+        "position": [
+          30,
+          40
+        ]
+      },
+      {
+        "deck": 9,
+        "position": [
+          30,
+          40
+        ]
+      },
+      {
+        "deck": 10,
         "position": [
           30,
           40

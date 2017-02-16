@@ -18,7 +18,7 @@ var Modal = React.createClass({
                             <h4 className="modal-title" id="modalLabel">{this.props.deck} уровень</h4>
                         </div>
                         <div className="modal-body body-style">
-                            <div className="full-size">
+                            <div>
                                 <Plane src={"svg/" + this.props.deck + ".svg"} rects={this.props.rects} />
                             </div>
                             {/*<div className="col-md-4">*/}
