@@ -33,3 +33,5 @@
 http://bootsnipp.com/snippets/rVge6
 http://bootsnipp.com/snippets/dbMj
 http://bootsnipp.com/snippets/QAA1
+http://www.bootply.com/tGF9MEGbLM#
+http://bootsnipp.com/snippets/featured/accordion-list-group-menu

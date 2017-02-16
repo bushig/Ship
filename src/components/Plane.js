@@ -32,15 +32,14 @@ class Plane extends React.Component {
     render() {
         return (
                 <ReactSVGPanZoom
-                    onLoad={()=>console.log("Загрузилось")}
                     SVGBackground={"#212830"}
                     background={'#212830'}
-                    width={window.innerWidth-20} height={window.innerHeight-80} ref={Viewer => this.Viewer = Viewer}
+                    width={window.innerWidth-20} height={window.innerHeight-70} ref={Viewer => this.Viewer = Viewer}
                     toolbarPosition={"top"}
                 >
 
                     <svg width={1024} height={768}>
-                        <image href={this.props.src} width={1024} height={768}/>
+                        <DeckImage src={this.props.src} />
                         {this.props.rects.map((rect) => {
                             return <Rect key={rect.position} x={rect.position[0]} y={rect.position[1]}/>
                         })}
@@ -50,6 +49,15 @@ class Plane extends React.Component {
         );
     }
 }
+
+class DeckImage extends React.Component {
+    render(){
+        return (
+            <image href={this.props.src} width={1024} height={768}/>
+        )
+    }
+}
+
 
 Plane.defaultProps = {
     rects: []

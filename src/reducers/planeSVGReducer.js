@@ -6,7 +6,11 @@ function planeData(state = {deck: 1}, action) {
         case 'SET_ACTIVE_DECK':
             return Object.assign({}, state, {deck: action.deck});
         case 'SET_RECTS':
-            return Object.assign({}, state, {rects: action.rects});
+            let rects = action.rects;
+            if (!Array.isArray(rects)) {
+                rects=new Array(rects);
+            }
+            return Object.assign({}, state, {rects: rects});
         default:
             return state
     }

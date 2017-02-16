@@ -19,6 +19,10 @@
   /*min-height: 100% !important;*/
 /*}*/
 
+#MapModal{
+  padding: 10px;
+}
+
 .full-screen {
   width: 100%;
   height: 100%;
@@ -27,11 +31,8 @@
   left: 0;
 }
 .body-style {
-  padding: 10px;
-  height: 90%;
-}
-.footer-style{
-  height: 15%;
+  padding: 0px;
+  overflow: hidden;
 }
 .full-size {
   width: 100%;

@@ -79,7 +79,7 @@ class Navbar extends React.Component {
                                 </li>
                             </ul>
                         </li>
-                        <li><input style={{marginTop: "7px"}} type="text" className="form-control" onChange={this.handleChange} placeholder="фильтр"/>
+                        <li><input style={{marginTop: "7px"}} type="text" className="form-control" onChange={this.handleChange} placeholder="Поиск"/>
                         </li>
 
                     </ul>

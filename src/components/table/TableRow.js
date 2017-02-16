@@ -10,12 +10,12 @@ function TableRow({data, setActiveDeck, setPlaneRects}) {
     return(
         <tr>
             <td scope="row" className="col-md-1">{data.index}</td>
-            <td className="col-md-6">{data.title}</td>
+            <td className="col-md-5">{data.title}</td>
             <td className="col-md-1">{itemsCount}</td>
             <td className="col-md-1">{unitMass}</td>
             <td className="col-md-1">{unitMass * itemsCount}</td>
-            <td className="col-md-2">
-                <PositionLinks setActiveDeck={setActiveDeck} setPlaneRects={setPlaneRects} items={data.items}/>
+            <td className="col-md-3">
+                <PositionLinks setActiveDeck={setActiveDeck} setPlaneRects={setPlaneRects} type={data.index} items={data.items}/>
             </td>
         </tr>
     )
