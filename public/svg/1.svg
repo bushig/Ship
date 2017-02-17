@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
+        width="1024"
+        height="768"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -10776,76 +10778,4 @@
        points="358.704,448.55 459.764,448.55 459.764,558.256 535.601,558.256 497.764,588.175 383.967,588.175 358.702,568.229 358.704,448.55 "
        id="room-5005"
        class="room n5005" />
-
-    <script type="text/javascript">
-        <![CDATA[
-            var svg = document.querySelector("svg");
-svg.addEventListener("click", function(e) {
-    alert(e.clientX + " " + e.clientY);
-});
-console.log(svg);
-var elem = svg;
-if (elem.addEventListener) {
-    if ('onwheel' in document) {
-        // IE9+, FF17+, Ch31+
-        elem.addEventListener("wheel", onWheel);
-    } else if ('onmousewheel' in document) {
-        // устаревший вариант события
-        elem.addEventListener("mousewheel", onWheel);
-    } else {
-        // Firefox < 17
-        elem.addEventListener("MozMousePixelScroll", onWheel);
-    }
-} else { // IE8-
-    elem.attachEvent("onmousewheel", onWheel);
-}
-
-function onWheel(e) {
-    e = e || window.event;
-    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-    var shiftX = 0;
-    var shiftY = 0;
-    var newX = 0;
-    var newY = 0;
-    var step = 1.5;
-
-    if (e.deltaY < 0) {
-        var width = this.viewBox.animVal.width / step;
-        var height = this.viewBox.animVal.height / step;
-
-        shiftX = (e.clientX ) * (step - 1);
-        shiftY = (e.clientY ) * (step - 1);
-    } else {
-        var width = this.viewBox.animVal.width * step;
-        var height = this.viewBox.animVal.height * step;
-        shiftX = (e.clientX + this.viewBox.animVal.x) * (1 / step - 1);
-        shiftY = (e.clientY + this.viewBox.animVal.y) * (1 / step - 1);
-    }
-    newX = (getSVGPosition(this).left  - shiftX);
-    newY = (getSVGPosition(this).top - shiftY);
-    this.setAttribute("viewBox", "" + 0 + " " + 0 + " " + width + " " + height);
-    //this.style.left = 0;
-    //this.style.top = 0;
-
-
-    console.log("clientX = " + e.clientX);
-    console.log("shiftX = " + shiftX);
-    console.log(this.viewBox.animVal);
-
-}
-
-function getSVGPosition (svg) {
-    var target = svg;
-    var boundingRect = target.getBoundingClientRect();
-    var svgLeft = boundingRect.left;
-    var svgTop = boundingRect.top;
-    console.log(svgLeft + " " + svgTop);
-    return {
-        left: svgLeft,
-        top: svgTop
-    }
-}
-        ]]>
-    </script>
-
 </svg>

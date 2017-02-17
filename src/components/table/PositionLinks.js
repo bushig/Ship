@@ -15,7 +15,7 @@ function PositionLinks({items, type, setActiveDeck, setPlaneRects}) {
                 const data = itemsByDeck[deck];
                 let targetID = "itemList-".concat(type).concat("-").concat(deck).concat("-").concat(index);
                 return (
-                    <div className="panel panel-default">
+                    <div key={targetID} className="panel panel-default">
                         {/*Элемент меню*/}
                         <div className="panel-heading">
                             <LinkToAll key={deck} deck={deck} data={data} setActiveDeck={setActiveDeck}
@@ -58,7 +58,7 @@ class PositionList extends React.Component {
         <div id={this.props.id} className="panel-collapse collapse">
             <ul className="list-group">
                 {this.props.data.map((item, index) => {
-                    return (<a href="#" className="list-group-item" data-toggle="modal"
+                    return (<a key={index} href="#" className="list-group-item" data-toggle="modal"
                                data-target="#MapModal" onClick={()=> this.handleClick(item)}><span className="glyphicon glyphicon-map-marker"/>{"Координаты:"+ item.position[0]+", "+item.position[1]}</a>)
                 })}
             </ul>

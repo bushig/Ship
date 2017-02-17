@@ -1,6 +1,6 @@
 import React from 'react';
 import {ReactSVGPanZoom} from 'react-svg-pan-zoom';
-import Dimensions from 'react-dimensions'
+const Isvg = require('react-inlinesvg');
 
 import Rect from './Rect'
 
@@ -53,7 +53,17 @@ class Plane extends React.Component {
 class DeckImage extends React.Component {
     render(){
         return (
-            <image href={this.props.src} width={1024} height={768}/>
+            <Isvg key={this.props.src} src={this.props.src} wrapper={React.DOM.g} onLoad={()=>console.log("Загрузился план")}>
+            </Isvg>
+            // <image className="inverted" href={this.props.src} width={1024} height={768} />
+        )
+    }
+}
+
+class SVGLoading extends React.Component {
+    render(){
+        return(
+            <text x="512" y="384" font-size="35">Загрузка</text>
         )
     }
 }
