@@ -19,7 +19,7 @@ var Modal = React.createClass({
                         </div>
                         <div className="modal-body body-style">
                             <div>
-                                <Plane src={"svg/" + this.props.deck + ".svg"} rects={this.props.rects} />
+                                <Plane src={"svg/" + this.props.deck + ".svg"} rects={this.props.rects} inverted={this.props.inverted} changeColor={this.props.setPlaneColor} />
                             </div>
                             {/*<div className="col-md-4">*/}
                                     {/*<h1>Информация:</h1>*/}

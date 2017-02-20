@@ -11,4 +11,11 @@ const setActiveDeck = (deck) => {
         deck: deck
     }
 };
-export {setPlaneRects, setActiveDeck};
+
+const setPlaneColor = (inverted) => {
+    return {
+        type: "SET_INVERTED",
+        inverted: inverted
+    }
+};
+export {setPlaneRects, setActiveDeck, setPlaneColor};

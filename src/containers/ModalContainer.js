@@ -4,24 +4,25 @@ import {bindActionCreators} from 'redux'
 
 import Modal from '../components/Modal'
 
-// import {setFilterText, setFilterRange} from '../actions/filterAction'
+import {setPlaneColor} from '../actions/planeAction'
 
 
-// function mapDispatchToProps(dispatch) {
-//     return bindActionCreators({setFilterRange, setFilterText
-//     }, dispatch)
-// }
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({setPlaneColor
+    }, dispatch)
+}
 
 const mapStateToProps = (state) => {
     console.log('State:', state);
     return {
         deck: state.planeData.deck,
-        rects: state.planeData.rects
+        rects: state.planeData.rects,
+        inverted: state.planeData.inverted
     }
 };
 
 const ModalContainer = connect(
-    mapStateToProps
-    // mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Modal);
 module.exports = ModalContainer;

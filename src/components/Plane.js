@@ -1,70 +1,72 @@
 import React from 'react';
 import {ReactSVGPanZoom} from 'react-svg-pan-zoom';
 const Isvg = require('react-inlinesvg');
+// import Toolbar from './Toolbar'
 
 import Rect from './Rect'
+import DeckImage from './DeckSVG'
 
 class Plane extends React.Component {
     constructor(props) {
         super(props);
+
+        this.black = "#212830";
+        this.white = "white";
+
         this.Viewer = null;
     }
 
     componentDidMount() {
-        console.log('Did mount');
         this.Viewer.fitToViewer();
         this.Viewer.reset();
-    }
-
-    componentWillUpdate() {
-        this.Viewer.reset();
-        // console.log(this.Viewer);
         this.Viewer.state.tool = 'pan';
-        // this.Viewer.setPointOnViewerCenter(-8, -4, 3.4);
-        // console.log('Did update: ', this.Viewer.getValue());
-        this.Viewer.fitToViewer();
-        // this.Viewer.zoom(0, 0, 1);
-        // this.Viewer.zoomOnViewerCenter(3.4);
-        // this.Viewer.zoom(0, 0, 3.4)
-
     }
+
+    // shouldComponentUpdate(nextProps, nextState){
+    //     return this.props.src !== nextProps.src;
+    // }
+
+    componentWillReceiveProps(nextProps){
+        if (nextProps.src !==this.props.src){
+            this.Viewer.reset();
+            this.Viewer.fitToViewer();
+        }
+    }
+    // componentWillUpdate() {
+    //
+    //     // console.log(this.Viewer);
+    //     // this.Viewer.state.tool = 'auto';
+    //     // this.Viewer.setPointOnViewerCenter(-8, -4, 3.4);
+    //     // console.log('Did update: ', this.Viewer.getValue());
+    //
+    //     // this.Viewer.zoom(0, 0, 1);
+    //     // this.Viewer.zoomOnViewerCenter(3.4);
+    //     // this.Viewer.zoom(0, 0, 3.4)
+    //
+    // }
 
     render() {
         return (
+            <div>
                 <ReactSVGPanZoom
-                    SVGBackground={"#212830"}
-                    background={'#212830'}
+                    detectAutoPan = {false}
+                    onDoubleClick={() => this.props.changeColor(!this.props.inverted)}
+                    SVGBackground={this.props.inverted ? this.white: this.black}
+                    background={this.props.inverted ? this.white: this.black}
                     width={window.innerWidth-20} height={window.innerHeight-70} ref={Viewer => this.Viewer = Viewer}
                     toolbarPosition={"top"}
                 >
 
                     <svg width={1024} height={768}>
-                        <DeckImage src={this.props.src} />
+                        <DeckImage src={this.props.src} inverted={this.props.inverted}/>
                         {this.props.rects.map((rect) => {
                             return <Rect key={rect.position} x={rect.position[0]} y={rect.position[1]}/>
                         })}
                     </svg>
                 </ReactSVGPanZoom>
+            </div>
 
         );
-    }
-}
-
-class DeckImage extends React.Component {
-    render(){
-        return (
-            <Isvg key={this.props.src} src={this.props.src} wrapper={React.DOM.g} onLoad={()=>console.log("Загрузился план")}>
-            </Isvg>
-            // <image className="inverted" href={this.props.src} width={1024} height={768} />
-        )
-    }
-}
-
-class SVGLoading extends React.Component {
-    render(){
-        return(
-            <text x="512" y="384" font-size="35">Загрузка</text>
-        )
     }
 }
 

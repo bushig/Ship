@@ -1,7 +1,7 @@
 //Should have SET_ACTIVE_DECK, SET_RECTS
 
 
-function planeData(state = {deck: 1}, action) {
+function planeData(state = {deck: 1, inverted:false}, action) {
     switch (action.type) {
         case 'SET_ACTIVE_DECK':
             return Object.assign({}, state, {deck: action.deck});
@@ -11,6 +11,8 @@ function planeData(state = {deck: 1}, action) {
                 rects=new Array(rects);
             }
             return Object.assign({}, state, {rects: rects});
+        case 'SET_INVERTED':
+            return Object.assign({}, state, {inverted: action.inverted});
         default:
             return state
     }
